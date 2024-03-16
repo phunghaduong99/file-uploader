@@ -6,25 +6,14 @@ from googleapiclient.http import MediaFileUpload
 from werkzeug.utils import secure_filename
 
 
-
+# Call the Drive v3 API
 scope = ['https://www.googleapis.com/auth/drive']
 service_account_json_key = 'secret.json'
 credentials = service_account.Credentials.from_service_account_file(
                               filename=service_account_json_key,
                               scopes=scope)
 drive_service = build('drive', 'v3', credentials=credentials)
-# Call the Drive v3 API
-
-
-# get current datetime
-
-
-parent_id= "1RL5nVtP96hQ-wQPbKAH3B5JuYpNxZ_sV"
-PARENT_FOLDER_ID= "1RL5nVtP96hQ-wQPbKAH3B5JuYpNxZ_sV"
-workpath = "/home/hgtp_admin/mongodb-backup/backup/"
-backupfilename = "mongodb_dump.gz"
-
-# zip folder to file
+PARENT_FOLDER_ID= "1RL5nVtP96hQ-wQPbKAH3B5JuYpNxZ_sV" ##folder hgtp
 
 def upload_file(file, parentFolderId):
     fileName = secure_filename(file.filename) 
