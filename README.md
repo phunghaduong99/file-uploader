@@ -12,11 +12,11 @@ $ pip3 install -r requirements.txt
 - Run application by **app.py**.
 
 ## Basic provided API 
-
+### I. FOLDER API
 ### I.1 '/cloud/folder', method='POST'
 - Use for create a new folder inside a parent folder.
 - Parent folder ID is indentified for a unique folder, can extract inside a google drive link.
-https://drive.google.com/drive/u/0/folders/**1RL5nVtP96hQ-wQPbKAH3B5JuYpNxZ_sV**
+https://drive.google.com/drive/u/0/folders/1RL5nVtP96hQ-wQPbKAH3B5JuYpNxZ_sV
 - Required params in body (raw json):
 ```bash
 {
@@ -42,7 +42,7 @@ http://localhost:8080/cloud/folder?mimeType=image/png&parentFolderId=1fFa8uKDWoF
 ```
 - mimeType is type of the file. Use **mimeType** for get filtering and getting exact list of images.
 - parentFolderId is the target folder.
-
+### II. FILE API
 ### II.1 '/cloud/file/uploader', method='POST'
 - Use for upload a new file to a remote folder.
 - Required params in body (form-data):
@@ -63,7 +63,7 @@ http://localhost:8080/cloud/folder?mimeType=image/png&parentFolderId=1fFa8uKDWoF
 ```
 
 
-### II.2 '/cloud/file/download', method='POST'
+### II.3 '/cloud/file/download', method='POST'
 - Use for download any existed remote file and save in local destination.
 - Required params in body (raw json):
 ```bash
