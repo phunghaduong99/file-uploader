@@ -63,7 +63,9 @@ def deleteRemoteFolder(folderId):
     return 'OK'
 
 
-def list_folder(mimeType):
+def list_folder(mimeType, parentFolderId):
+    if parentFolderId == '' or parentFolderId == None:
+        parentFolderId = PARENT_FOLDER_ID
     """List folders and files in Google Drive."""
     results = drive_service.files().list(
         q=f"'{PARENT_FOLDER_ID}' in parents and trashed=false" if PARENT_FOLDER_ID else None,

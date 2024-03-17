@@ -51,7 +51,8 @@ def delete_remote_folder_api():
 @app.route('/cloud/folder', methods=['GET'])
 def list_in_folder_api():
     mimeType = request.args.get('mimeType', '')
-    return list_folder(mimeType)
+    parentFolderId = request.args.get('parentFolderId', '')
+    return list_folder(mimeType, parentFolderId)
 
 
 ############# FILE #################
